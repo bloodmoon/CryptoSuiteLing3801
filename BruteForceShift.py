@@ -35,12 +35,12 @@ for element in shiftList:
     outputFile.write("\n")
 
     # Shift current character from "element" and file writing / formatting
-    shiftedChar = ShiftDecode(element)
+    decoder = ShiftDecode(element)
     for ele in cipherText:
         if ord(ele) is 10:
             outputFile.write("\n")
         elif ele is not ' ':
-            outputFile.write(shiftedChar.decode_char(ele).lower())
+            outputFile.write(decoder.decode_char(ele).lower())
     outputFile.write("\n")
 
 print("Brute Force Shift Attack Complete!")

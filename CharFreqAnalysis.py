@@ -39,20 +39,19 @@ if mostFreqChar is not 'E':
     if shift <= 0:
         shift = shift + 26
 
-outputFile.write("\n")
 outputFile.write("Most Frequent character found is : ")
 outputFile.write(str(mostFreqChar))
 outputFile.write("\n")
-outputFile.write("Amount of  : ")
+outputFile.write("Amount of Shift Required to Shift to \"E\" : ")
 outputFile.write(str(shift))
 outputFile.write("\n")
 
 # Shift current character from "element" and file writing / formatting
-# shiftedChar = ShiftDecode(element)
-# for ele in cipherText:
-#     if ord(ele) is 10:
-#        outputFile.write("\n")
-#     elif ele is not ' ':
-#         outputFile.write(shiftedChar.decode_char(ele).lower())
-#
-# outputFile.write("\n")
+decoder = ShiftDecode(element)
+for ele in cipherText:
+    if ord(ele) is 10:
+        outputFile.write("\n")
+    elif ele is not ' ':
+        outputFile.write(decoder.decode_char(ele).lower())
+
+outputFile.write("\n")
