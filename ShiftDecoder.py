@@ -8,8 +8,3 @@ class ShiftDecode:
             return chr(ord(char_cap) + self.shiftVal)
         else:
             return chr(ord(char_cap) + self.shiftVal - 26)
-
-
-# remove after testing
-test = ShiftDecode(26)
-print(test.decode_char('A'))
