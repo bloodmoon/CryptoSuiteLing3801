@@ -8,6 +8,8 @@ Takes a text file as input for the cipher text and outputs a text file
 containing every consecutive alphabetical shift in the range of (0-25)
 """
 from ShiftDecoder import ShiftDecode
+import inspect
+
 
 # Setup Variables
 shiftList = list(range(26))
@@ -40,6 +42,10 @@ for element in shiftList:
         elif ele is not ' ':
             outputFile.write(shiftedChar.decode_char(ele).lower())
     outputFile.write("\n")
+
+print("Brute Force Shift Attack Complete!")
+print("Output File Saved As: ", end="")
+print(outputFile.name)
 
 # Cleanup
 inputFile.close()
