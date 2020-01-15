@@ -1,28 +1,29 @@
 from ShiftDecoder import ShiftDecode
 shiftList = list(range(26))
-file = open("test.txt")
+inputFile = open("cipherText.txt")
+outputFile = open("plainText.txt", "w")
 
 cipherText = []
 
 while True:
-    currentChar = file.read(1)
+    currentChar = inputFile.read(1)
     if currentChar is '':
         break
     else:
         cipherText.append(currentChar)
 
-print(cipherText)
-
 for element in shiftList:
-    print()
-    print(element)
+    outputFile.write("\n")
+    outputFile.write(str(element))
+    outputFile.write("\n")
 
     test = ShiftDecode(element)
     for ele in cipherText:
         if ord(ele) is 10:
-            print(" ")
+            outputFile.write("\n")
         elif ele is not ' ':
-            print(test.decode_char(ele).lower(), end='')
-        # else:
-        #     print(ele, end="")
+            outputFile.write(test.decode_char(ele).lower())
+    outputFile.write("\n")
 
+inputFile.close()
+outputFile.close()
